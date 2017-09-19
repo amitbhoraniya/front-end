@@ -62,12 +62,12 @@
               callback(error);
               return;
             }
+            console.log("Received response: " + JSON.stringify(body));
+            var jsonBody = JSON.parse(body);
             if (!jsonBody || !jsonBody._links || !jsonBody._links.customer || !jsonBody._links.addresses || !jsonBody._links.cards) {
               callback(body);
               return;
             }
-            console.log("Received response: " + JSON.stringify(body));
-            var jsonBody = JSON.parse(body);
             var customerlink = jsonBody._links.customer.href;
             var addressLink = jsonBody._links.addresses.href;
             var cardLink = jsonBody._links.cards.href;
