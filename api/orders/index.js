@@ -62,6 +62,10 @@
               callback(error);
               return;
             }
+            if (!jsonBody._links.customer || !jsonBody._links.addresses || !jsonBody._links.cards) {
+              callback(body);
+              return;
+            }
             console.log("Received response: " + JSON.stringify(body));
             var jsonBody = JSON.parse(body);
             var customerlink = jsonBody._links.customer.href;
