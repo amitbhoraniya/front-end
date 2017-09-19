@@ -62,7 +62,7 @@
               callback(error);
               return;
             }
-            if (!jsonBody._links.customer || !jsonBody._links.addresses || !jsonBody._links.cards) {
+            if (!jsonBody || jsonBody._links || !jsonBody._links.customer || !jsonBody._links.addresses || !jsonBody._links.cards) {
               callback(body);
               return;
             }
